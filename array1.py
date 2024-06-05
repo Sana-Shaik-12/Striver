@@ -1,32 +1,27 @@
 import numpy as np
 import ast
-def rowm(matrix, r,c,i):
-    for k in range(c):
-        if matrix[i][k]!=0:
-            matrix[i][k]=-1
-def colm(matrix, r,c,j):
-    for k in range(r):
-        if matrix[k][j]!=0:
-            matrix[k][j]=-1
-
 def findzero(matrix,r,c):
+    print("initial matrix",matrix)
+    row = [0]*r
+    col = [0]*c
     for i in range(r):
         for j in range(c):
             if matrix[i][j]==0:
-                rowm(matrix,r,c,i)
-                colm(matrix,r,c,j)
+                row[i]=1
+                col[j]=1
                 
     for i in range(r):
         for j in range(c):
-            if matrix[i][j]==-1:
+            if row[i] or col[j]:
                 matrix[i][j]=0
-    
-    print(matrix)            
+
+
+    print("final matrix",matrix)          
 
 if __name__ == "__main__":
     inpmat=input("enter")
-    inpmat=ast.literal_eval(inpmat)
-    matrix=np.array(inpmat)
+    inpmat1=ast.literal_eval(inpmat)
+    matrix=np.array(inpmat1)
     r,c = matrix.shape
     
     findzero(matrix,r,c)
