@@ -15,7 +15,6 @@ def findzero(matrix,r,c):
             if row[i] or col[j]:
                 matrix[i][j]=0
 
-
     print("final matrix",matrix)          
 
 if __name__ == "__main__":
